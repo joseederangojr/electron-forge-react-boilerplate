@@ -1,5 +1,5 @@
 const isDev = process.env.NODE_ENV !== "production"
-module.exports = [
+module.exports = (isRenderer = true) => [
   // Add support for native node modules
   {
     test: /\.node$/,
@@ -22,7 +22,7 @@ module.exports = [
       options: {
         exclude: /node_modules/,
         presets: ["@babel/preset-react"],
-        plugins: [isDev && require.resolve("react-refresh/babel")].filter(Boolean),
+        plugins: [isRenderer && isDev && "react-refresh/babel"].filter(Boolean),
       },
     },
   },

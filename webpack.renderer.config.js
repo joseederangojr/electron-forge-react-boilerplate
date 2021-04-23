@@ -1,5 +1,7 @@
-const rules = require("./webpack.rules")
+const $rules = require("./webpack.rules")
 const plugins = require("./webpack.plugins")
+
+const rules = $rules()
 rules.push({
   test: /\.css$/,
   use: [{ loader: "style-loader" }, { loader: "css-loader" }],
